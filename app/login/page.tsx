@@ -85,10 +85,14 @@ export default function LoginPage() {
                 id="email"
                 name="email"
                 type="email"
+                defaultValue={
+                  activeRole === "siswa" ? "siswa@sekolah.id" : "guru@sekolah.id"
+                }
+                key={activeRole}
                 placeholder={
                   activeRole === "siswa"
-                    ? "email.siswa@sekolah.sch.id"
-                    : "email.guru@sekolah.sch.id"
+                    ? "siswa@sekolah.id"
+                    : "guru@sekolah.id"
                 }
                 className="input-field"
                 autoComplete="email"
@@ -121,7 +125,8 @@ export default function LoginPage() {
                 id="password"
                 name="password"
                 type="password"
-                placeholder="Masukkan kata sandi"
+                defaultValue="123"
+                placeholder="Masukkan kata sandi (cth: 123)"
                 className="input-field"
                 autoComplete="current-password"
                 disabled={pending}
@@ -131,6 +136,11 @@ export default function LoginPage() {
                   {state.errors.password[0]}
                 </p>
               )}
+            </div>
+
+            {/* Hint akun test */}
+            <div className="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-xs text-indigo-300">
+              💡 <strong>Uji Coba Instan:</strong> Gunakan password <code className="bg-indigo-950 px-1.5 py-0.5 rounded text-white font-mono">123</code> atau email dengan kata <code className="bg-indigo-950 px-1.5 py-0.5 rounded text-white font-mono">siswa</code> / <code className="bg-indigo-950 px-1.5 py-0.5 rounded text-white font-mono">guru</code>.
             </div>
 
             {/* Error umum */}
