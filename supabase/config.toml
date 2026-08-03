@@ -21,4 +21,7 @@ jwt_expiry = 3600
 enable_signup = true
 
 [auth.external.github]
-enabled = true
+enabled = false
+client_id = ""
+secret = ""
+redirect_uri = ""

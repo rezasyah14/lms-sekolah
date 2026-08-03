@@ -3,12 +3,11 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import type { SessionPayload, Role } from "@/app/lib/definitions";
 
-const secretKey = process.env.SESSION_SECRET;
+const secretKey =
+  process.env.SESSION_SECRET ||
+  "lms-easynomics-secret-key-ganti-ini-sebelum-production-2026";
 
 function getEncodedKey() {
-  if (!secretKey) {
-    throw new Error("SESSION_SECRET environment variable is not set.");
-  }
   return new TextEncoder().encode(secretKey);
 }
 
